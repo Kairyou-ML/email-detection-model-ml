@@ -1,0 +1,1 @@
+link drive for  model distillBert: "https://drive.google.com/drive/folders/1cx2WEGGh-5RF-ZenphLBuK_r3dZQIc2L"
