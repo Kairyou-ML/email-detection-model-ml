@@ -37,12 +37,12 @@ def load_data(path):
     return df
 
 def train_benchmarking():
-    print("🚀 Loading processed data for benchmarking...")
+    print("Loading processed data for benchmarking...")
     try:
         train_df = load_data(TRAIN_DATA_PATH)
         test_df = load_data(TEST_DATA_PATH)
     except FileNotFoundError as e:
-        print(f"❌ {e}")
+        print(f"{e}")
         return
 
     # Prepare X and y
@@ -136,7 +136,7 @@ def train_benchmarking():
     best_precision_model = results_df['Precision'].idxmax()
     best_precision_val = results_df['Precision'].max()
     
-    print(f"\n💡 Best Model for Precision (Avoiding False Positives): {best_precision_model}")
+    print(f"\nBest Model for Precision (Avoiding False Positives): {best_precision_model}")
     print(f"   Precision Score: {best_precision_val:.4f}")
     
     # Save best model logic
@@ -146,7 +146,7 @@ def train_benchmarking():
 
     # 6. Plot ROC Curve
     # ----------------------------------------------------
-    print("\n📊 Generating ROC Curves...")
+    print("\nGenerating ROC Curves...")
     # This will now safely skip LinearSVC (which has no probabilities) and plot the others
     plot_roc_curves(trained_models, X_test, y_test)
 

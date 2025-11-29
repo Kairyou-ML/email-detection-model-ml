@@ -42,7 +42,7 @@ def plot_feature_distributions(df: pd.DataFrame, target_col: str):
     # SAVE the plot to disk instead of showing it
     output_path = 'data/feature_distributions.png'
     plt.savefig(output_path)
-    print(f"   📊 Plot saved successfully to: {output_path}")
+    print(f" Plot saved successfully to: {output_path}")
     
     # Close the plot to free memory
     plt.close()
@@ -63,7 +63,7 @@ def plot_correlation(df: pd.DataFrame):
         
         output_path = 'data/feature_correlation.png'
         plt.savefig(output_path)
-        print(f"   📊 Correlation matrix saved to: {output_path}")
+        print(f"   Correlation matrix saved to: {output_path}")
         plt.close()
 
 def plot_roc_curves(models_dict, X_test, y_test):
@@ -84,10 +84,10 @@ def plot_roc_curves(models_dict, X_test, y_test):
                 y_scores = model.predict_proba(X_test)[:, 1]
             else:
                 # Fallback for models that might not have predict_proba (though our SVM/RF/NB do)
-                print(f"⚠️ Model {name} does not support probability prediction. Skipping ROC.")
+                print(f"Model {name} does not support probability prediction. Skipping ROC.")
                 continue
         except AttributeError:
-            print(f"⚠️ Model {name} encountered error in probability prediction.")
+            print(f"Model {name} encountered error in probability prediction.")
             continue
             
         fpr, tpr, _ = roc_curve(y_test, y_scores)
@@ -105,5 +105,5 @@ def plot_roc_curves(models_dict, X_test, y_test):
     
     output_path = 'data/roc_curve_comparison.png'
     plt.savefig(output_path)
-    print(f"   📊 ROC Curve saved to: {output_path}")
+    print(f"   ROC Curve saved to: {output_path}")
     plt.close()

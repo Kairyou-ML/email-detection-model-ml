@@ -23,7 +23,7 @@ LEARNING_RATE = 2e-5 # Low LR for fine-tuning pre-trained models
 
 # Check for GPU
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(f"🖥️ Using device: {device}")
+print(f"Using device: {device}")
 
 class SpamDataset(torch.utils.data.Dataset):
     """Custom PyTorch Dataset for loading emails."""
@@ -75,9 +75,9 @@ class CustomTrainer(Trainer):
 def train_distilbert():
     # 1. Load Data
     # ------------------------------------------------
-    print("🚀 Loading data for DistilBERT...")
+    print("Loading data for DistilBERT...")
     if not os.path.exists(TRAIN_PATH):
-        print(f"❌ Error: {TRAIN_PATH} not found. Run preprocessing first.")
+        print(f"Error: {TRAIN_PATH} not found. Run preprocessing first.")
         return
 
     train_df = pd.read_csv(TRAIN_PATH)

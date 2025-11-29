@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 try:
     nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
 except OSError:
-    print("⚠️ spaCy model 'en_core_web_sm' not found. Please run: python -m spacy download en_core_web_sm")
+    print("spaCy model 'en_core_web_sm' not found. Please run: python -m spacy download en_core_web_sm")
     # Fallback to a blank model to prevent immediate crash, though lemmatization won't work well
     nlp = spacy.blank("en")
 
@@ -33,7 +33,7 @@ class EmailPipeline:
         Step 1: Feature Engineering.
         Extracts structural features BEFORE cleaning the text.
         """
-        print("⚙️ Extracting manual features...")
+        print("Extracting manual features...")
         df = df.copy()
         
         # 1. Body Length: Length of the raw text
@@ -97,7 +97,7 @@ class EmailPipeline:
         Step 3: Stratified Split.
         Ensures the ratio of Spam/Ham is preserved in both Train and Test sets.
         """
-        print("✂️ Splitting data (80/20 Stratified)...")
+        print("Splitting data (80/20 Stratified)...")
         X = df.drop(columns=[target_col])
         y = df[target_col]
         
